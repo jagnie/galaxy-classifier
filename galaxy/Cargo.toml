@@ -1,0 +1,36 @@
+[package]
+name = "astro"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2"
+tract-onnx = "0.21.2"
+getrandom = {version = "0.2", features = ["js"]}
+ndarray = "0.15"
+
+[dependencies.web-sys]
+version = "0.3"
+features = [
+    "Window",
+    "Document",
+    "Element",
+    "DomTokenList",
+    "HtmlInputElement",
+    "HtmlImageElement",
+    "Event",
+    "FileReader",
+    "FileList",
+    "File",
+    "console",
+    "CanvasRenderingContext2d",
+    "HtmlCanvasElement",
+    "ImageData",
+]
+
+[profile.release]
+lto=true
+opt-level='z'

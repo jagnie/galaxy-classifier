@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Galaxy Type</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="icon" href="icon.png"/>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=BBH+Bartle&display=swap');
+        </style>
+    </head>
+
+    <body>
+        <div class="contents">
+            <div class="header">
+                <h1>GALAXY TYPE</h1>
+                <h2>in-browser galaxy classifier</h2>  
+            </div>
+            <div class="main">
+                <label for="galaxy-image" class="upload-button">choose a galaxy image</label>
+                <input type="file" id="galaxy-image" name="galaxy-image" accept="image/png, image/jpeg"/>
+                <div class="content-box">
+        
+                    <div class="preview-wrapper">
+                        <img id="image-preview" class="hidden"/>
+                    </div>
+
+                    <p id="prediction-result" class="result-text" style="white-space: pre-line;"></p>
+                    
+                </div>
+            </div>
+            <footer>might not be too accurate</footer>
+        </div>
+
+        <script type="module">
+            import init, {run} from "./pkg/astro.js";
+            async function start() {
+                await init();
+                run();
+            }
+            start();
+        </script>
+    </body>
+</html>
